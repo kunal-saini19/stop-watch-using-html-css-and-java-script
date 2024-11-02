@@ -1,0 +1,107 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #000000, #4a4a4a); /* Black to dark gray gradient */
+    color: white;
+}
+
+
+.stopwatch {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.7); 
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.circle {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-color: black; 
+}
+
+.circle::before {
+    content: '';
+    position: absolute;
+    width: 240px; 
+    height: 240px;
+    top: -20px;
+    left: -20px;
+    border-radius: 50%;
+    background: linear-gradient(
+        90deg,
+        #ff3a3a,
+        #ff7d3a,
+        #ffcc00,
+        #ff7d3a,
+        #ff3a3a
+    ); 
+    z-index: -1;
+    filter: blur(8px);
+    animation: fire 1.5s linear infinite;
+}
+
+
+@keyframes fire {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+.time {
+    position: absolute;
+    font-size: 1.5rem;
+    color: white;
+    text-align: center;
+}
+
+
+.hand {
+    position: absolute;
+    width: 2px;
+    height: 80px;
+    background: #ff6f61;
+    top: 20px;
+    transform-origin: bottom;
+    transform: rotate(0deg);
+    transition: transform 0.05s linear;
+}
+
+
+.buttons button {
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #6c63ff;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+.buttons button:hover {
+    background-color: #5753c9;
+}
+
+
+.laps {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.laps div {
+    padding: 5px;
+    font-size: 1.2rem;
+}
